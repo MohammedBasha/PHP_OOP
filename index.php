@@ -38,44 +38,18 @@
 
 class appleDevice {
     // Properties:
-    public $ram = '1 GB';
-    public $inch = '3 Inches';
-    public $space = '32 GB';
-    public $color = 'Black';
+    private $ram;
 
-    // Constants:
-    const CHIP = 'A9';
-    const MINCHARS = 5;
-
-    // Methods:
-    public function doubleHomePressed() {
-        echo 'This device does not support this feature<br>';
-        echo self::CHIP;
-    }
-
-    public function getSpecification() {
-        echo 'This device ram is ' . $this->ram . '<br>';
-        echo 'This device inch is ' . $this->inch . '<br>';
-        echo 'This device space is ' . $this->space . '<br>';
-        echo 'This device color is ' . $this->color . '<br>';
+    public function changeRam($ramArg) {
+        $this->ram = $ramArg;
     }
 }
 
 $newiPhone6 = new appleDevice();
+echo $newiPhone6->changeRam("1 GB");
+// echo $newiPhone6->ram; // error
 
-$newiPhone6->ram = '2 GB';
-$newiPhone6->inch = '5 Inches';
-$newiPhone6->space = '128 GB';
-$newiPhone6->space = 'Blue';
-$newiPhone6->doubleHomePressed();
-
-echo 'CHIP: '. $newiPhone6::CHIP;
-echo 'CHIP: '. appleDevice::CHIP;
-
-$newiPhone7 = new appleDevice();
-$newiPhone7->doubleHomePressed();
-
-echo "<pre>";
+echo '<br>';
+echo '<pre>';
 var_dump($newiPhone6);
-var_dump($newiPhone7);
-echo "</pre>";
+echo '</pre>';
