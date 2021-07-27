@@ -38,11 +38,19 @@
 
 class appleDevice {
     // Properties:
+    public $screen;
+    public $touch;
+    public $sound;
+    public $camera;
     private $ram;
 
     public function changeRam($ramArg) {
         $this->ram = $ramArg;
     }
+}
+
+class appleDevice2 extends appleDevice {
+
 }
 
 $newiPhone6 = new appleDevice();
@@ -52,4 +60,12 @@ echo $newiPhone6->changeRam("1 GB");
 echo '<br>';
 echo '<pre>';
 var_dump($newiPhone6);
+echo '</pre>';
+
+$newiPhone7 = new appleDevice2();
+echo $newiPhone7->changeRam("3 GB");
+
+echo '<br>';
+echo '<pre>';
+var_dump($newiPhone7);
 echo '</pre>';
