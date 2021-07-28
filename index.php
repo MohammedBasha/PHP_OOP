@@ -1,27 +1,9 @@
 <?php
 
-/*
- *  Method chaining:
- *
- * */
+spl_autoload_register(function($class) {
+    require 'classes/' . $class . '.php';
+});
 
-class Mobile {
-    public function sayMorning() {
-        echo 'Good Morning <br>';
-        return $this; // must return $this to make the chaining work
-    }
+$var = new Testing2();
 
-    public function sayAfternoon() {
-        echo 'Good Afternoon <br>';
-        return $this; // must return $this to make the chaining work
-    }
-
-    public function sayEvening() {
-        echo 'Good Evening <br>';
-        return $this; // must return $this to make the chaining work
-    }
-}
-
-$phone = new Mobile();
-
-$phone->sayMorning()->sayAfternoon()->sayEvening();
+print_r($var);
