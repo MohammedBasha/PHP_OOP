@@ -36,34 +36,51 @@
  * - Application: blog system.
  * */
 
+// Super class / main class / parent class
 class appleDevice {
     // Properties:
-    public $screen;
-    public $touch;
-    public $sound;
-    public $camera;
-    private $ram;
+    public $ram = '1 GB';
+    public $inch = '4 Inch';
+    public $space = '16 GB';
+    public $color = 'Silver';
+    public $screen = 'LCD';
+    public $name;
 
-    public function changeRam($ramArg) {
-        $this->ram = $ramArg;
+    // Methods:
+    public function changeSpec($ra, $in, $sp, $co) {
+        $this->ram = $ra;
+        $this->inch = $in;
+        $this->space = $sp;
+        $this->color = $co;
+    }
+
+    final public function sayHello($na) {
+        $this->name = $na;
+        echo 'Welcome to ' . $na;
     }
 }
 
-class appleDevice2 extends appleDevice {
+// Sub class / child class
+class Sony extends appleDevice {
+    public $camera = '25 MB';
 
+    public function sayHello($na) {
+        $this->name = $na;
+        echo 'Welcome to ' . $na . ' This is a new phone.';
+    }
 }
 
 $newiPhone6 = new appleDevice();
-echo $newiPhone6->changeRam("1 GB");
-// echo $newiPhone6->ram; // error
+$newiPhone6->changeSpec('3 GB', '5 Inch', '32 GB', 'Gold');
+$newiPhone6->sayHello('Apple');
 
 echo '<br>';
 echo '<pre>';
 var_dump($newiPhone6);
 echo '</pre>';
 
-$newiPhone7 = new appleDevice2();
-echo $newiPhone7->changeRam("3 GB");
+$newiPhone7 = new Sony();
+$newiPhone7->sayHello('Sony');
 
 echo '<br>';
 echo '<pre>';
